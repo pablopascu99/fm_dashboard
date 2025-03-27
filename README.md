@@ -27,8 +27,8 @@ Ensure you have Python 3.10 or higher installed. All required dependencies are l
 3. Run the application:
     ```bash
     streamlit run src/app.py
-### Usage 🖥️
+## Usage 🖥️
 1. Run the application and navigate through the tabs to explore metrics or perform anomaly detection.
 2. Adjust filters to customize visualizations.
-### License 📄
+## License 📄
 This project is licensed under the MIT License.
