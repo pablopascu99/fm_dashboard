@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # Load the CSV file
-df = pd.read_csv("files/all_data_ts.csv")
+df = pd.read_csv("src/files/all_data_ts.csv")
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df = standardize_column_names(df, column_mapping)
 

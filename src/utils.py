@@ -3,13 +3,13 @@ import joblib
 def load_models():
     """Loads trained models, the encoder, and the scaler."""
     models = {
-        "RandomForest": joblib.load("ml/ml_models/RandomForest_model.pkl"),
-        "SVM": joblib.load("ml/ml_models/SVM_model.pkl"),
-        "KNN": joblib.load("ml/ml_models/KNN_model.pkl"),
-        "NaiveBayes": joblib.load("ml/ml_models/NaiveBayes_model.pkl")
+        "RandomForest": joblib.load("src/ml/ml_models/RandomForest_model.pkl"),
+        "SVM": joblib.load("src/ml/ml_models/SVM_model.pkl"),
+        "KNN": joblib.load("src/ml/ml_models/KNN_model.pkl"),
+        "NaiveBayes": joblib.load("src/ml/ml_models/NaiveBayes_model.pkl")
     }
-    encoder = joblib.load("ml/ml_models/label_encoder.pkl")
-    scaler = joblib.load("ml/ml_models/scaler.pkl")
+    encoder = joblib.load("src/ml/ml_models/label_encoder.pkl")
+    scaler = joblib.load("src/ml/ml_models/scaler.pkl")
     return models, encoder, scaler
 
 def preprocess_data(df, scaler):
