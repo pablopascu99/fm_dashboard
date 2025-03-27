@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from utils import load_models, preprocess_data, predict
+import os
 
 metric_subgroups = {
     "Network": [
@@ -136,9 +137,18 @@ def render_metrics_dashboard(df):
 def render_anomaly_detection():
     """Renders the anomaly detection tab."""
     st.title("Network Anomaly Detection")
-    uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+
+    # List available CSV files in the 'files' directory, excluding 'all_data_ts.csv'
+    files_dir = "src/files"
+    available_files = [f for f in os.listdir(files_dir) if f.endswith(".csv") and f != "all_data_ts.csv"]
+
+    # Let the user select a file
+    selected_file = st.selectbox("Select a CSV file", available_files)
+
+    if selected_file:
+        file_path = os.path.join(files_dir, selected_file)
+        df = pd.read_csv(file_path)
+
         if "anomaly" in df.columns:
             true_labels = df["anomaly"]
             df = df.drop(columns=["anomaly"])
@@ -151,7 +161,7 @@ def render_anomaly_detection():
 
         st.write("### Model Predictions:")
         results = pd.DataFrame(predictions)
-        
+
         # Add the original column if true_labels is available
         if true_labels is not None:
             results["originalAnomaly"] = true_labels.values
