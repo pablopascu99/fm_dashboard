@@ -17,7 +17,7 @@ Ensure you have Python 3.10 or higher installed. All required dependencies are l
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/fm_dashboard.git
+   git clone https://github.com/pablopascu99/fm_dashboard.git
    cd fm_dashboard
 2. Create a virtual environment and install dependencies:
     ```bash
